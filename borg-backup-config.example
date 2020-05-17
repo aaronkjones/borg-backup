@@ -1,0 +1,23 @@
+LOGFILE="/var/log/borg/backup.log"
+TIMESTAMP=$(date "+%m-%d-%Y %T")
+
+# Backup repository destination
+export BORG_REPO='/mnt/user/backups/borg'
+
+# Source directory to back up
+SOURCE_DIR='/mnt/user/config /mnt/user/data'
+
+# Rcloud backup destination
+export CLOUDDEST='b2:my-backup-borg'
+
+# Speeds up the backup by caching more
+export BORG_FILES_CACHE_TTL=26
+
+# Borg encryption passphrase
+export BORG_PASSPHRASE='PASSPHRASE'
+export BORG_CACHE_DIR='/mnt/user/appdata/borg/cache/'
+export BORG_BASE_DIR='/mnt/user/appdata/borg/'
+
+PRUNE_DAILY=7
+PRUNE_WEEKLY=0
+PRUNE_MONTHLY=0
